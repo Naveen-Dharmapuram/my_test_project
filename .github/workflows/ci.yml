@@ -15,7 +15,7 @@ permissions:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -40,3 +40,4 @@ jobs:
     - name: Testing with python
       run: |
         python test.py
+      
