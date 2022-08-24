@@ -6,5 +6,4 @@ def test_area():
  
 def test_perimeter():
     output = algo.perimeter_of_rectangle(2,5)
-    print("1111111111")
     assert output == 14
