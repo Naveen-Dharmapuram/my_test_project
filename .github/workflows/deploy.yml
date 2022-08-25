@@ -1,4 +1,4 @@
-on: push
+on: pull_request
 name: Main Workflow
 jobs:
   artifactoryUpload:
@@ -6,7 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1.2.0
-    - name: build
     - name: publish to artifactory
       uses: advancedcsg-open/action-jfrog-cli@master
       with:
