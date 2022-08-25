@@ -15,3 +15,4 @@ jobs:
         credentials type: 'apikey'
         apikey: ${{ secrets.RT_APIKEY }}
         args: u "dist/*" "/mu/repo/path/" --recursive=true --build-name=myawesomeapp
+        
