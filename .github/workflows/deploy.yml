@@ -1,0 +1,17 @@
+on: push
+name: Main Workflow
+jobs:
+  artifactoryUpload:
+    name: Upload Trigger
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1.2.0
+    - name: build
+      run: ./buildmyartifact.sh
+    - name: publish to artifactory
+      uses: advancedcsg-open/action-jfrog-cli@master
+      with:
+        url: 'https://gfx-assets.sh.intel.com/'
+        credentials type: 'apikey'
+        apikey: ${{ secrets.RT_APIKEY }}
+        args: u "dist/*" "/mu/repo/path/" --recursive=true --build-name=myawesomeapp
