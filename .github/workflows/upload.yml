@@ -24,6 +24,7 @@ jobs:
           echo 'bravo2'    > bravo.html
           echo 'charlie3'  > charlie.html
           cd ..
+          cp test.py downloads\test.py
           dir
     
       - name: Step 3 - Use the Upload Artifact GitHub Action
