@@ -9,17 +9,22 @@ jobs:
   archive-build-artifacts:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - name: Step 0 -> test the local dir
+        run: dir
 
       - name: Step 1 - Create a temporary artifact downloads folder
         run: mkdir downloads
         
       - name: step 2 - Add artifacts to publish to the temp folder
         run: |
+          dir
           cd downloads
           echo 'alpha1'    > alpha.html
           echo 'bravo2'    > bravo.html
           echo 'charlie3'  > charlie.html
           cd ..
+          dir
     
       - name: Step 3 - Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
