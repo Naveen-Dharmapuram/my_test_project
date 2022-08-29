@@ -26,9 +26,23 @@ jobs:
           cd ..
           cp test.py downloads
           dir
+          pwd
     
       - name: Step 3 - Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
         with: 
           name: assets-for-download
           path: downloads
+
+      - name: Step 4 - Use the download Artifact GitHub Action
+        uses: actions/download-artifact@v2
+        with:
+          name: assets-for-download
+          path: /home/runner/work/my_test_project/my_test_project
+          
+      - name: step 5 - check the downloaded artifacts
+        run: |
+           dir
+           pwd
+           
+      
