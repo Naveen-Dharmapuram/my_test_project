@@ -33,3 +33,9 @@ jobs:
         with: 
           name: assets-for-download
           path: downloads
+
+      - name: Step 4 - Use the Upload Artifact GitHub Action
+        uses: actions/download-artifact@v2
+        with:
+          name: assets-for-download
+          path: /home/      
