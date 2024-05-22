@@ -1,0 +1,7 @@
+# template.yaml
+parameters:
+  message: ''  # Define a parameter that can be passed to the template
+
+steps:
+- script: echo ${{ parameters.message }}
+  displayName: 'Print Message'
