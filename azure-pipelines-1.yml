@@ -32,6 +32,9 @@ steps:
       
       echo Hello world
 - task: PythonScript@0
+  inputs:
+    scriptSource: 'inline'
+    script: 'print("hello python")'
 
 - script: |
     python -m pip install --upgrade pip
