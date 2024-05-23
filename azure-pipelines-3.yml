@@ -1,0 +1,19 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: |
+    echo "This is a sample text file." > sample.txt
+  displayName: 'Create sample text file'
+
+- task: UniversalPackages@0
+  inputs:
+    command: 'publish'
+    publishDirectory: '.'
+    feedsToUse: 'internal'
+    vstsFeedPublish: 'test'
+    packagePublishId: 'MyUniversalPackage'
+    packagePublishVersion: '1.0.0'
