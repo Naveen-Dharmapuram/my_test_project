@@ -26,6 +26,10 @@ stages:
             # Write your PowerShell commands here.
             
             Write-Host "Hello World"
+      - task: PublishPipelineArtifact@1
+        inputs:
+          targetPath: $(System.DefaultWorkingDirectory)/test_touch.txt
+          artifact: touch
 
     - job: testjob2
       displayName: testjob2
