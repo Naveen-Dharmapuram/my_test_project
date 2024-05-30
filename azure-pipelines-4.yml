@@ -37,6 +37,13 @@ stages:
         - script: |
                   echo test in job 2
                   ls
+        - task: DownloadPipelineArtifact@2
+          inputs:
+           artifactName: touch
+        
+        - script: |
+                  echo test in job2 for second time
+                  ls
 
 
     
