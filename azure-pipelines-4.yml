@@ -39,7 +39,7 @@ stages:
                   ls
         - task: DownloadPipelineArtifact@2
           inputs:
-           artifactName: touch
+           artifact: touch
         
         - script: |
                   echo test in job2 for second time
