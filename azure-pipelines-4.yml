@@ -25,4 +25,11 @@ stages:
             
             Write-Host "Hello World"
 
+    - job: testjob2
+      displayName: testjob2
+      steps:
+        - script: |
+                  echo test in job 2
+
+
     
