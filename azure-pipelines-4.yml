@@ -17,7 +17,7 @@ stages:
       steps:
       - script: |
                 echo test
-                touch test.txt
+                touch test_touch.txt
                 ls
       - task: PowerShell@2
         inputs:
@@ -32,6 +32,7 @@ stages:
       steps:
         - script: |
                   echo test in job 2
+                  ls
 
 
     
