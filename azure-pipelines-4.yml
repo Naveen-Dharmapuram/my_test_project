@@ -30,6 +30,12 @@ stages:
         inputs:
           targetPath: $(System.DefaultWorkingDirectory)/test_touch.txt
           artifact: touch
+      - script: |
+              mkdir -p $(Build.ArtifactStagingDirectory)/pipeline_artifact
+              cp $(Build.SourcesDirectory)/azure-pipelines.yml $(Build.ArtifactStagingDirectory)/pipeline_artifact/
+              cp $(System.DefaultWorkingDirectory)/test_touch.txt $(Build.ArtifactStagingDirectory)/pipeline_artifact/
+        displayName: "Copy pipeline YAML and test file to artifact staging directory"
+
       - task: PublishBuildArtifacts@1
         inputs:
           pathToPublish: '$(Build.ArtifactStagingDirectory)'
