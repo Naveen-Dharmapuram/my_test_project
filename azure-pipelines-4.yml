@@ -43,6 +43,7 @@ stages:
 
     - job: testjob2
       displayName: testjob2
+      dependsOn: testjob1
       steps:
         - script: |
                   echo test in job 2
