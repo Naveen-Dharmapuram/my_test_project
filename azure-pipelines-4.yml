@@ -39,8 +39,8 @@ stages:
                   ls
         - task: DownloadPipelineArtifact@2
           inputs:
-           artifact: touch
-        
+           artifactName: touch
+           targetPath: $(System.DefaultWorkingDirectory)
         - script: |
                   echo test in job2 for second time
                   ls
