@@ -55,6 +55,18 @@ stages:
         - script: |
                   echo test in job2 for second time
                   ls
+        - task: DownloadBuildArtifacts@1
+          inputs:
+            artifactName: drop1
+            downloadPath: $(system.DefaultWorkingDirectory)
+            buildType: current
+            downloadType: single
+          displayName: Download_build_artifact
+
+        - script: |
+                  echo display after dowloding the build artifact
+                  ls
+          displayName: Dispalying after the downling build artict
 
 
     
