@@ -30,16 +30,28 @@ stages:
         inputs:
           targetPath: $(System.DefaultWorkingDirectory)/test_touch.txt
           artifact: touch
+
       - script: |
               mkdir -p $(Build.ArtifactStagingDirectory)/pipeline_artifact
               cp $(Build.SourcesDirectory)/azure-pipelines.yml $(Build.ArtifactStagingDirectory)/pipeline_artifact/
               cp $(System.DefaultWorkingDirectory)/test_touch.txt $(Build.ArtifactStagingDirectory)/pipeline_artifact/
         displayName: "Copy pipeline YAML and test file to artifact staging directory"
+      
+      - script: |
+              mkdir -p $(Build.ArtifactStagingDirectory)/pipeline_artifact1
+              cp $(Build.SourcesDirectory)/*.yml $(Build.ArtifactStagingDirectory)/pipeline_artifact1/
+              cp $(System.DefaultWorkingDirectory)/test_touch.txt $(Build.ArtifactStagingDirectory)/pipeline_artifact1/
+        displayName: "Copy pipeline YAML and test file to artifact staging directory for second build artifact"
 
       - task: PublishBuildArtifacts@1
         inputs:
-          pathToPublish: '$(Build.ArtifactStagingDirectory)'
+          pathToPublish: '$(Build.ArtifactStagingDirectory)/pipeline_artifact'
           artifactName: drop1
+      
+      - task: PublishBuildArtifacts@1
+        inputs:
+          pathToPublish: '$(Build.ArtifactStagingDirectory)/pipeline_artifact1'
+          artifactName: drop2
 
     - job: testjob2
       displayName: testjob2
@@ -67,7 +79,7 @@ stages:
                   echo display after dowloding the build artifact
                   ls
                   echo display only the artifact contents
-                  ls drop1/pipeline_artifact
+                  ls drop1
           displayName: Dispalying after the downling build artict
 
 
