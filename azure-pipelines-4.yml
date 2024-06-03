@@ -89,6 +89,8 @@ stages:
                   ls
                   echo display only the artifact contents
                   ls drop1
+                  echo display only the second artifact contents
+                  ls test_path
           displayName: Dispalying after the downling build artict
 
 
