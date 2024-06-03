@@ -67,7 +67,7 @@ stages:
                   echo display after dowloding the build artifact
                   ls
                   echo display only the artifact contents
-                  ls drop1
+                  ls drop1/pipeline_artifact
           displayName: Dispalying after the downling build artict
 
 
