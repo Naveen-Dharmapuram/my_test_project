@@ -74,6 +74,12 @@ stages:
             buildType: current
             downloadType: single
           displayName: Download_build_artifact
+        
+        - task: DownloadBuildArtifacts@0
+          inputs:
+            downloadPath: $(system.DefaultWorkingDirectory)/test_path
+            buildType: current
+          displayName: Download_build_artifact_all
 
         - script: |
                   echo display after dowloding the build artifact
