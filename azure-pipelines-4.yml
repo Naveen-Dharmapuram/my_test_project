@@ -66,6 +66,8 @@ stages:
         - script: |
                   echo display after dowloding the build artifact
                   ls
+                  echo display only the artifact contents
+                  ls drop1
           displayName: Dispalying after the downling build artict
 
 
