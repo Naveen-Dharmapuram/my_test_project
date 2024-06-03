@@ -75,10 +75,12 @@ stages:
             downloadType: single
           displayName: Download_build_artifact
         
-        - task: DownloadBuildArtifacts@0
+        - task: DownloadBuildArtifacts@1
           inputs:
             downloadPath: $(system.DefaultWorkingDirectory)/test_path
             buildType: current
+            artifactName: drop1,drop2
+            downloadType: specific
           displayName: Download_build_artifact_all
 
         - script: |
