@@ -95,6 +95,7 @@ stages:
       
     - job: newjob
       displayName: New job for testing
+      dependsOn: testjob2
       steps:
         - task: CopyFiles@2
           inputs:
@@ -109,6 +110,11 @@ stages:
             archiveType: 'zip'
             archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
             replaceExistingArchive: true
+        
+        - task: PublishBuildArtifacts@1
+          inputs:
+            pathToPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+            artifactName: $(Build.BuildId).zip
 
 
     
