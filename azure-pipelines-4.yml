@@ -92,6 +92,23 @@ stages:
                   echo display only the second artifact contents
                   ls test_path
           displayName: Dispalying after the downling build artict
+      
+    - job: newjob
+      displayName: New job for testing
+      steps:
+        - task: CopyFiles@2
+          inputs:
+            SourceFolder: '$(system.DefaultWorkingDirectory)'
+            Contents: '**'
+            TargetFolder: '$(Build.BinariesDirectory)'
+
+        - task: ArchiveFiles@2
+          inputs:
+            rootFolderOrFile: '$(Build.BinariesDirectory)'
+            includeRootFolder: true
+            archiveType: 'zip'
+            archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+            replaceExistingArchive: true
 
 
     
